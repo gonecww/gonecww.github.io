@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VANTA — Feedback logs</title>
+  <style>
+    body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;background:#0b0b0f;color:#f7f7f7;padding:24px}
+    .card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);padding:16px;border-radius:12px;max-width:980px;margin:0 auto}
+    .row{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+    select,input{padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    button{padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(90deg,#a78bfa,#34d399);color:#07101a}
+    .list{display:flex;flex-direction:column;gap:10px;max-height:60vh;overflow:auto;padding:8px}
+    .item{padding:12px;border-radius:10px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.03)}
+    .meta{font-size:12px;color:#9aa0b4;margin-bottom:6px}
+    .mono{font-family:monospace}
+    a.download{display:inline-block;margin-left:8px;padding:8px 10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit;text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Feedback logs</h2>
+    <p style="color:#b9becf">Recent feedback submitted by users. This is read-only pulled from the server usage log.</p>
+    <div class="row">
+      <select id="flt"><option value="all">All categories</option><option value="general">general</option><option value="bug">bug</option><option value="feature">feature</option><option value="performance">performance</option></select>
+      <input id="q" placeholder="search text or name" />
+      <button id="refresh">Refresh</button>
+      <a class="download" href="/api/logs" target="_blank">Download JSON</a>
+    </div>
+    <div id="list" class="list">Loading…</div>
+  </div>
+
+  <script>
+    async function load(){
+      const list = document.getElementById('list');
+      list.textContent = 'Loading...';
+      try{
+        const res = await fetch('/api/feedbacks');
+        const payload = await res.json();
+        const items = payload.feedbacks || [];
+        render(items);
+      }catch(e){ list.textContent = 'Could not load logs.' }
+    }
+    function render(items){
+      const q = (document.getElementById('q').value||'').toLowerCase();
+      const cat = document.getElementById('flt').value;
+      const list = document.getElementById('list');
+      list.innerHTML = '';
+      const filtered = items.filter(it=>{
+        const txt = ((it.feedback||'') + ' ' + (it.userName||'')).toLowerCase();
+        if(cat!=='all' && !txt.includes(cat)) return false;
+        if(q && !txt.includes(q)) return false;
+        return true;
+      });
+      if(filtered.length===0){ list.innerHTML = '<div style="opacity:0.6;padding:12px">No feedback found.</div>'; return }
+      filtered.reverse().forEach(it=>{
+        const el = document.createElement('div'); el.className='item';
+        el.innerHTML = `<div class="meta"><strong>${escapeHtml(it.userName||'anonymous')}</strong> · <span class="mono">${(new Date(it.timestamp)).toLocaleString()}</span> · ${escapeHtml(it.clientIp||'')}</div><div>${escapeHtml(it.feedback||'')}</div><div style="margin-top:6px;font-size:12px;color:#8f95a6">taskId: <span class="mono">${escapeHtml(it.taskId||'')}</span></div>`;
+        list.appendChild(el);
+      })
+    }
+    function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br/>')}
+    document.getElementById('refresh').addEventListener('click',load)
+    document.getElementById('q').addEventListener('input',load)
+    document.getElementById('flt').addEventListener('change',load)
+    load();
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VANTA Uploader</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h3>VANTA Uploader</h3>
+    <div class="row">
+      <input id="fileInput" type="file" accept="video/*" />
+    </div>
+
+    <div class="row">
+      <select id="resolutionSelect">
+        <option value="original">Original</option>
+        <option value="1080x1920">1080×1920</option>
+        <option value="720x1280">720×1280</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <select id="qualitySelect">
+        <option value="balanced">Balanced</option>
+        <option value="high">High bitrate</option>
+        <option value="low">Low bitrate</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <button id="uploadBtn">Upload & Optimize</button>
+    </div>
+
+    <div id="status" class="status">Idle</div>
+    <div id="progressBar" class="progress"><div id="progressFill"></div></div>
+    <div class="links"><a id="openApp" href="#">Open web app</a></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
