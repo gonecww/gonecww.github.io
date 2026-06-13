@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "VANTA Uploader",
+  "version": "1.0.0",
+  "description": "Upload videos to your local VANTA server from a Chrome extension popup.",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["storage", "notifications"],
+  "host_permissions": [
+    "http://localhost:5000/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

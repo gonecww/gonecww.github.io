@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VANTA Uploading Method — TikTok Video Optimizer</title>
+  <meta name="description" content="VANTA Uploading Method prepares your video for TikTok with high bitrate and high-frame-rate export options." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/interactive.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!--  LANDING PAGE                                                    -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <section id="page-landing" class="page active">
+
+    <!-- NAV -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="#" class="logo" onclick="showPage('landing')">
+          <span class="logo-mark">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <rect x="2" y="2" width="11" height="11" rx="2" fill="url(#grad1)"/>
+              <rect x="15" y="2" width="11" height="11" rx="2" fill="url(#grad2)" opacity="0.6"/>
+              <rect x="2" y="15" width="11" height="11" rx="2" fill="url(#grad2)" opacity="0.6"/>
+              <rect x="15" y="15" width="11" height="11" rx="2" fill="url(#grad1)"/>
+              <defs>
+                <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#a78bfa"/>
+                  <stop offset="100%" stop-color="#7c3aed"/>
+                </linearGradient>
+                <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#34d399"/>
+                  <stop offset="100%" stop-color="#059669"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
+          <span class="logo-text">VANTA Uploading Method</span>
+        </a>
+        <div class="nav-links">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#how-it-works" class="nav-link">How it works</a>
+          <button class="nav-link" id="navLogsBtn" type="button" onclick="showPage('logs')">Logs</button>
+          <button class="nav-link" id="navFeedbackBtn" type="button" onclick="showPage('feedback')">Feedback</button>
+          <button class="btn btn-primary" onclick="showPage('upload')">Start Optimizing</button>
+          <button class="btn btn-ghost theme-toggle" id="themeToggle" type="button">Light mode</button>
+        </div>
+        <button class="nav-mobile-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-bg">
+        <div class="hero-orb hero-orb--1"></div>
+        <div class="hero-orb hero-orb--2"></div>
+        <div class="hero-orb hero-orb--3"></div>
+        <div class="hero-grid"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          TikTok-optimized export engine
+        </div>
+        <h1 class="hero-headline">
+          Your footage.<br />
+          <span class="headline-accent">Uncompromised.</span>
+        </h1>
+        <p class="hero-subtext">
+          VANTA Uploading Method pre-optimizes your videos using TikTok's preferred codec profile,
+          so the platform's re-encoding does as little damage as possible.
+          Upload once. Look pristine.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-hero" onclick="showPage('upload')">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L10 12M10 2L6 6M10 2L14 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 14V16C3 17.1 3.9 18 5 18H15C16.1 18 17 17.1 17 16V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Upload a video — it's free
+          </button>
+          <a href="#how-it-works" class="btn btn-ghost">See how it works</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">250MB</span><span class="stat-label">Max file size</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">5</span><span class="stat-label">Formats supported</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">H.265</span><span class="stat-label">Codec output</span></div>
+        </div>
+      </div>
+
+      <!-- MOCK PREVIEW CARD -->
+      <div class="hero-preview">
+        <div class="preview-card glass">
+          <div class="preview-header">
+            <div class="preview-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span class="preview-title">Processing complete</span>
+          </div>
+          <div class="preview-body">
+            <div class="preview-thumb">
+              <div class="preview-play">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+              <div class="preview-scan"></div>
+            </div>
+            <div class="preview-meta">
+              <div class="meta-row">
+                <span class="meta-label">Original</span>
+                <span class="meta-value">187.4 MB · AVI</span>
+              </div>
+              <div class="meta-arrow">↓</div>
+              <div class="meta-row meta-row--result">
+                <span class="meta-label">Optimized</span>
+                <span class="meta-value accent">98.2 MB · MP4</span>
+              </div>
+              <div class="meta-quality">
+                <span class="quality-label">Quality retention</span>
+                <div class="quality-bar">
+                  <div class="quality-fill" style="width: 94%"></div>
+                </div>
+                <span class="quality-pct">94%</span>
+              </div>
+            </div>
+          </div>
+          <div class="preview-footer">
+            <button class="btn-download-mini">
+              <svg viewBox="0 0 20 20" fill="none" width="14" height="14">
+                <path d="M10 2v10m0 0l-3-3m3 3l3-3M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Download optimized video
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- FEATURES -->
+    <section id="features" class="features-section">
+      <div class="section-inner">
+        <div class="section-label">What you get</div>
+        <h2 class="section-title">Built for creators who care about quality</h2>
+        <div class="features-grid">
+          <div class="feature-card glass">
+            <div class="feature-icon feature-icon--purple">
+              <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Codec-aware encoding</h3>
+            <p>Choose H.264 for compatibility or H.265/HEVC for superior compression at equivalent quality. Both tuned for TikTok's ingest pipeline.</p>
+          </div>
+          <div class="feature-card glass">
+            <div class="feature-icon feature-icon--green">
+              <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+                <path d="M3 3h18v4H3zM3 10h18v4H3zM3 17h18v4H3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Resolution presets</h3>
+            <p>Optimized presets for 1080×1920, 720×1280 and custom resolutions. Maintains aspect ratio and avoids upscaling artifacts.</p>
+          </div>
+          <div class="feature-card glass">
+            <div class="feature-icon feature-icon--blue">
+              <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Frame rate preservation</h3>
+            <p>Lock your source frame rate or normalize to 30/60fps. Prevents judder and duplicate frames that TikTok's encoder amplifies.</p>
+          </div>
+          <div class="feature-card glass">
+            <div class="feature-icon feature-icon--amber">
+              <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+                <path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3>Audio quality control</h3>
+            <p>AAC-LC at up to 320kbps. Normalize loudness to -14 LUFS so your audio sounds identical after TikTok's own normalization pass.</p>
+          </div>
+          <div class="feature-card glass">
+            <div class="feature-icon feature-icon--red">
+              <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Bitrate optimizer</h3>
+            <p>CRF + maxrate capping prevents the file from going over TikTok's preferred ingest ceiling while maximizing visual fidelity.</p>
+          </div>
+          <div class="feature-card glass">
+            <div class="feature-icon feature-icon--teal">
+              <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Secure by design</h3>
+            <p>Files are validated server-side, isolated per session, and automatically purged after download. Nothing lingers on our servers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="how-section">
+      <div class="section-inner">
+        <div class="section-label">The process</div>
+        <h2 class="section-title">Three steps to pristine</h2>
+        <div class="steps-container">
+          <div class="step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h3>Upload your video</h3>
+              <p>Drag-and-drop or browse. MP4, MOV, AVI, MKV, and WebM accepted. Up to 250 MB per file.</p>
+            </div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h3>Configure your export</h3>
+              <p>Choose codec, resolution, bitrate ceiling, frame rate, and audio quality. Or use our TikTok-recommended defaults.</p>
+            </div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h3>Download and post</h3>
+              <p>Your optimized MP4 is ready. Post it to TikTok and watch it arrive sharper than anything you've posted before.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-section">
+      <div class="cta-inner glass">
+        <div class="cta-orb"></div>
+        <h2>Ready to stop losing quality to compression?</h2>
+        <p>No account required. No watermarks. Just better-looking TikToks.</p>
+        <button class="btn btn-hero" onclick="showPage('upload')">Upload your first video</button>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <a href="#" class="logo" onclick="showPage('landing')">
+          <span class="logo-mark">
+            <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
+              <rect x="2" y="2" width="11" height="11" rx="2" fill="url(#fgrad1)"/>
+              <rect x="15" y="2" width="11" height="11" rx="2" fill="url(#fgrad2)" opacity="0.6"/>
+              <rect x="2" y="15" width="11" height="11" rx="2" fill="url(#fgrad2)" opacity="0.6"/>
+              <rect x="15" y="15" width="11" height="11" rx="2" fill="url(#fgrad1)"/>
+              <defs>
+                <linearGradient id="fgrad1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#a78bfa"/>
+                  <stop offset="100%" stop-color="#7c3aed"/>
+                </linearGradient>
+                <linearGradient id="fgrad2" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#34d399"/>
+                  <stop offset="100%" stop-color="#059669"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
+          <span class="logo-text">VANTA Uploading Method</span>
+        </a>
+        <p class="footer-copy">© 2025 VANTA Uploading Method. Not affiliated with TikTok or ByteDance.</p>
+      </div>
+    </footer>
+  </section>
+
+  <!-- FEEDBACK PAGE -->
+  <section id="page-feedback" class="page">
+    <div class="app-nav">
+      <a href="#" class="logo" onclick="showPage('landing')">
+        <span class="logo-mark">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+            <rect x="2" y="2" width="11" height="11" rx="2" fill="url(#rgrad1)"/>
+            <rect x="15" y="2" width="11" height="11" rx="2" fill="url(#rgrad2)" opacity="0.6"/>
+            <rect x="2" y="15" width="11" height="11" rx="2" fill="url(#rgrad2)" opacity="0.6"/>
+            <rect x="15" y="15" width="11" height="11" rx="2" fill="url(#rgrad1)"/>
+            <defs>
+              <linearGradient id="rgrad1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#a78bfa"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+              <linearGradient id="rgrad2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#34d399"/>
+                <stop offset="100%" stop-color="#059669"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="logo-text">VANTA Uploading Method</span>
+      </a>
+      <div class="breadcrumb">
+        <span class="crumb">Feedback</span>
+      </div>
+    </div>
+
+    <div class="results-container" style="max-width:900px;">
+      <h2 class="results-title">Send feedback & suggestions</h2>
+      <p class="results-subtitle">Have an idea, bug report, or feature request? Tell us what would make VANTA better.</p>
+
+      <div class="comparison-card glass" style="flex-direction:column; gap:18px; padding:28px;">
+        <form id="feedbackForm" class="feedback-form" onsubmit="event.preventDefault(); submitFeedbackPage();">
+          <div style="display:flex; gap:12px; margin-bottom:12px;">
+            <select id="feedbackCategory" style="flex:1;">
+              <option value="general">General feedback</option>
+              <option value="bug">Bug report</option>
+              <option value="feature">Feature request</option>
+              <option value="performance">Performance</option>
+            </select>
+            <input id="feedbackEmail" type="email" placeholder="Email (optional)" />
+          </div>
+          <textarea id="feedbackPageText" placeholder="Describe your feedback or suggestion"></textarea>
+          <div style="display:flex; gap:12px; align-items:center; margin-top:12px;">
+            <button class="btn btn-primary" id="feedbackPageSubmit" type="button">Send feedback</button>
+            <p id="feedbackPageNote" class="feedback-note" style="margin:0;">We read every message.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGS PAGE -->
+  <section id="page-logs" class="page">
+    <div class="app-nav">
+      <a href="#" class="logo" onclick="showPage('landing')">
+        <span class="logo-mark">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+            <rect x="2" y="2" width="11" height="11" rx="2" fill="url(#rgrad1)"/>
+            <rect x="15" y="2" width="11" height="11" rx="2" fill="url(#rgrad2)" opacity="0.6"/>
+            <rect x="2" y="15" width="11" height="11" rx="2" fill="url(#rgrad2)" opacity="0.6"/>
+            <rect x="15" y="15" width="11" height="11" rx="2" fill="url(#rgrad1)"/>
+          </svg>
+        </span>
+        <span class="logo-text">VANTA Uploading Method</span>
+      </a>
+      <div class="breadcrumb">
+        <span class="crumb active">Logs</span>
+      </div>
+    </div>
+
+    <div class="results-container" style="max-width:1100px;">
+      <h2 class="results-title">Feedback logs</h2>
+      <p class="results-subtitle">Recent feedback submissions collected from users.</p>
+
+      <div class="comparison-card glass" style="padding:20px;">
+        <div style="display:flex; gap:12px; align-items:center; margin-bottom:12px;">
+          <select id="logsFilter">
+            <option value="all">All categories</option>
+            <option value="general">General feedback</option>
+            <option value="bug">Bug reports</option>
+            <option value="feature">Feature requests</option>
+            <option value="performance">Performance</option>
+          </select>
+          <input id="logsSearch" type="search" placeholder="Search feedback text or name" style="flex:1;" />
+          <button class="btn btn-ghost" id="refreshLogsBtn" type="button">Refresh</button>
+          <a class="btn btn-download-mini" id="downloadLogsBtn" href="/api/logs" target="_blank">Download JSON</a>
+        </div>
+
+        <div id="logsList" class="logs-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!--  UPLOAD PAGE                                                     -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <section id="page-upload" class="page">
+    <div class="app-nav">
+      <a href="#" class="logo" onclick="showPage('landing')">
+        <span class="logo-mark">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+            <rect x="2" y="2" width="11" height="11" rx="2" fill="url(#agrad1)"/>
+            <rect x="15" y="2" width="11" height="11" rx="2" fill="url(#agrad2)" opacity="0.6"/>
+            <rect x="2" y="15" width="11" height="11" rx="2" fill="url(#agrad2)" opacity="0.6"/>
+            <rect x="15" y="15" width="11" height="11" rx="2" fill="url(#agrad1)"/>
+            <defs>
+              <linearGradient id="agrad1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#a78bfa"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+              <linearGradient id="agrad2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#34d399"/>
+                <stop offset="100%" stop-color="#059669"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="logo-text">VANTA Uploading Method</span>
+      </a>
+      <div class="breadcrumb">
+        <span class="crumb active">Upload</span>
+        <span class="crumb-sep">›</span>
+        <span class="crumb">Configure</span>
+        <span class="crumb-sep">›</span>
+        <span class="crumb">Process</span>
+        <span class="crumb-sep">›</span>
+        <span class="crumb">Download</span>
+      </div>
+    </div>
+
+    <div class="app-layout">
+      <!-- DROP ZONE -->
+      <div class="upload-panel">
+        <div class="upload-zone" id="dropZone">
+          <div class="dz-idle" id="dzIdle">
+            <div class="dz-icon">
+              <svg viewBox="0 0 64 64" fill="none" width="56" height="56">
+                <circle cx="32" cy="32" r="30" stroke="url(#dzg)" stroke-width="1.5" stroke-dasharray="4 3"/>
+                <path d="M32 20v16M32 20l-6 6M32 20l6 6" stroke="url(#dzg)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M20 44h24" stroke="url(#dzg)" stroke-width="1.5" stroke-linecap="round"/>
+                <defs>
+                  <linearGradient id="dzg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#a78bfa"/>
+                    <stop offset="1" stop-color="#34d399"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <h2 class="dz-headline">Drop your video here</h2>
+            <p class="dz-sub">MP4 · MOV · AVI · MKV · WebM — up to 250 MB</p>
+            <button class="btn btn-primary dz-browse" id="browseBtn">Browse files</button>
+            <input type="file" id="fileInput" accept="video/mp4,video/quicktime,video/x-msvideo,video/x-matroska,video/webm,.mp4,.mov,.avi,.mkv,.webm" hidden />
+          </div>
+          <div class="dz-hover" id="dzHover">
+            <div class="dz-drop-indicator">
+              <svg viewBox="0 0 64 64" fill="none" width="64" height="64">
+                <path d="M32 12v28M32 40l-12-12M32 40l12-12" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+              <p>Release to upload</p>
+            </div>
+          </div>
+          <div class="dz-uploading" id="dzUploading">
+            <div class="upload-progress-visual">
+              <svg class="progress-ring" viewBox="0 0 120 120" width="120" height="120">
+                <circle cx="60" cy="60" r="52" stroke="rgba(167,139,250,0.15)" stroke-width="6" fill="none"/>
+                <circle cx="60" cy="60" r="52" stroke="url(#ringGrad)" stroke-width="6" fill="none"
+                  stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="326.73"
+                  id="progressRing" transform="rotate(-90 60 60)"/>
+                <defs>
+                  <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#a78bfa"/>
+                    <stop offset="100%" stop-color="#34d399"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="progress-center">
+                <span class="progress-pct" id="uploadPct">0%</span>
+                <span class="progress-label">Uploading</span>
+              </div>
+            </div>
+            <p class="upload-filename" id="uploadFilename">video.mp4</p>
+            <p class="upload-speed" id="uploadSpeed">Calculating...</p>
+          </div>
+        </div>
+
+        <!-- FILE SELECTED STATE -->
+        <div class="file-selected-panel" id="fileSelectedPanel" style="display:none">
+          <div class="file-info glass">
+            <div class="file-thumb" id="fileThumbnail">
+              <svg viewBox="0 0 48 48" fill="none" width="32" height="32">
+                <rect x="6" y="4" width="36" height="40" rx="4" stroke="#a78bfa" stroke-width="1.5"/>
+                <path d="M20 18l12 6-12 6V18z" fill="#a78bfa"/>
+              </svg>
+            </div>
+            <div class="file-details">
+              <span class="file-name" id="selectedFileName">video.mp4</span>
+              <span class="file-meta" id="selectedFileMeta">0 MB · MP4</span>
+            </div>
+            <button class="file-remove" id="removeFile" title="Remove file">
+              <svg viewBox="0 0 20 20" fill="none" width="16" height="16">
+                <path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- VALIDATION ERROR -->
+        <div class="error-banner" id="uploadError" style="display:none">
+          <svg viewBox="0 0 20 20" fill="none" width="18" height="18">
+            <circle cx="10" cy="10" r="8" stroke="#f87171" stroke-width="1.5"/>
+            <path d="M10 6v5M10 13v1" stroke="#f87171" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span id="uploadErrorMsg">Error message</span>
+          <button onclick="clearError()" class="error-dismiss">✕</button>
+        </div>
+      </div>
+
+      <!-- SETTINGS PANEL -->
+      <aside class="settings-panel glass" id="settingsPanel">
+        <div class="settings-header">
+          <h3>Export Settings</h3>
+          <button class="settings-preset-btn" id="presetBtn" onclick="applyTikTokPreset()">
+            <svg viewBox="0 0 20 20" fill="none" width="14" height="14">
+              <path d="M10 2l2.4 4.8L18 8l-4 3.9.9 5.4L10 14.8l-4.9 2.5.9-5.4L2 8l5.6-.8z" fill="currentColor"/>
+            </svg>
+            TikTok recommended
+          </button>
+        </div>
+
+        <div class="settings-group">
+          <label class="setting-label">Video Codec</label>
+          <div class="toggle-group" id="codecToggle">
+            <button class="toggle-btn active" data-value="libx264">H.264</button>
+            <button class="toggle-btn" data-value="libx265">H.265 / HEVC</button>
+          </div>
+          <p class="setting-hint">H.264 = wider compatibility · H.265 = better quality at same size</p>
+        </div>
+
+        <div class="settings-group">
+          <label class="setting-label">Resolution</label>
+          <div class="select-wrapper">
+            <select id="resolutionSelect" class="setting-select">
+              <option value="original">Original resolution — preserve source size</option>
+              <option value="1080x1920">1080 × 1920 — Full HD Portrait</option>
+              <option value="720x1280">720 × 1280 — HD Portrait</option>
+              <option value="1080x1080">1080 × 1080 — Square</option>
+              <option value="1920x1080">1920 × 1080 — Landscape HD</option>
+            </select>
+          </div>
+          <p class="setting-note">Choose original resolution to keep your video size exactly as it came in.</p>
+        </div>
+
+        <div class="settings-group">
+          <label class="setting-label">Quality mode</label>
+          <div class="toggle-group" id="qualityToggle">
+            <button class="toggle-btn active" data-value="balanced">Balanced</button>
+            <button class="toggle-btn" data-value="high">Higher bitrate</button>
+            <button class="toggle-btn" data-value="low">Lower bitrate</button>
+          </div>
+          <p class="setting-note">Use high bitrate for the best quality, or low bitrate for smaller files.</p>
+        </div>
+
+        <div class="settings-group">
+          <label class="setting-label">Uploader name</label>
+          <input id="userName" type="text" placeholder="Creator name or team" />
+        </div>
+
+        <div class="settings-group">
+          <label class="setting-label">Frame Rate</label>
+          <div class="toggle-group" id="fpsToggle">
+            <button class="toggle-btn" data-value="preserve">Preserve</button>
+            <button class="toggle-btn active" data-value="30">30 fps</button>
+            <button class="toggle-btn" data-value="60">60 fps</button>
+            <button class="toggle-btn" data-value="120">120 fps</button>
+            <button class="toggle-btn" data-value="240">240 fps</button>
+          </div>
+          <p id="framerateNote" class="setting-note">Use original framerate on desktop for normal playback.</p>
+        </div>
+
+        <div class="settings-group">
+          <label class="setting-label">
+            Max Bitrate
+            <span class="label-value" id="bitrateLabel">8000 kbps</span>
+          </label>
+          <div class="range-wrapper">
+            <input type="range" id="bitrateRange" class="setting-range"
+              min="2000" max="30000" step="500" value="12000"
+              oninput="updateBitrateLabel(this.value)" />
+            <div class="range-track-fill" id="bitrateTrackFill"></div>
+          </div>
+          <div class="range-marks">
+            <span>2 Mbps</span>
+            <span>15 Mbps</span>
+            <span>30 Mbps</span>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <label class="setting-label">CRF Quality (lower = better)</label>
+          <div class="toggle-group" id="crfToggle">
+            <button class="toggle-btn" data-value="18">18 — Max</button>
+            <button class="toggle-btn active" data-value="23">23 — High</button>
+            <button class="toggle-btn" data-value="28">28 — Balanced</button>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <label class="setting-label">
+            Audio Quality
+            <span class="label-value" id="audioBitrateLabel">192 kbps</span>
+          </label>
+          <div class="range-wrapper">
+            <input type="range" id="audioBitrateRange" class="setting-range"
+              min="96" max="320" step="32" value="192"
+              oninput="updateAudioLabel(this.value)" />
+          </div>
+          <div class="range-marks">
+            <span>96 kbps</span>
+            <span>192 kbps</span>
+            <span>320 kbps</span>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <label class="setting-label">Audio Normalization</label>
+          <div class="toggle-row">
+            <label class="toggle-switch">
+              <input type="checkbox" id="normalizeAudio" checked />
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-desc">Normalize to −14 LUFS (TikTok standard)</span>
+          </div>
+        </div>
+
+        <div class="settings-group backend-status-group">
+          <div class="backend-status-card glass">
+            <div>
+              <span class="setting-label">Backend status</span>
+              <p class="status-copy" id="backendStatusLabel">Checking backend...</p>
+            </div>
+            <button class="btn btn-ghost btn-small" id="refreshBackendStatusBtn" type="button">Refresh</button>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <button class="btn btn-process" id="processBtn" disabled onclick="startProcessing()">
+            <svg viewBox="0 0 20 20" fill="none" width="18" height="18">
+              <path d="M10 2L10 5M10 15v3M2 10H5M15 10h3M4.22 4.22l2.12 2.12M13.66 13.66l2.12 2.12M4.22 15.78l2.12-2.12M13.66 6.34l2.12-2.12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            Optimize Video
+          </button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!--  PROCESSING PAGE                                                 -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <section id="page-processing" class="page">
+    <div class="app-nav">
+      <a href="#" class="logo" onclick="showPage('landing')">
+        <span class="logo-mark">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+            <rect x="2" y="2" width="11" height="11" rx="2" fill="url(#pgrad1)"/>
+            <rect x="15" y="2" width="11" height="11" rx="2" fill="url(#pgrad2)" opacity="0.6"/>
+            <rect x="2" y="15" width="11" height="11" rx="2" fill="url(#pgrad2)" opacity="0.6"/>
+            <rect x="15" y="15" width="11" height="11" rx="2" fill="url(#pgrad1)"/>
+            <defs>
+              <linearGradient id="pgrad1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#a78bfa"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+              <linearGradient id="pgrad2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#34d399"/>
+                <stop offset="100%" stop-color="#059669"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="logo-text">VANTA Uploading Method</span>
+      </a>
+      <div class="breadcrumb">
+        <span class="crumb done">Upload</span>
+        <span class="crumb-sep">›</span>
+        <span class="crumb done">Configure</span>
+        <span class="crumb-sep">›</span>
+        <span class="crumb active">Process</span>
+        <span class="crumb-sep">›</span>
+        <span class="crumb">Download</span>
+      </div>
+    </div>
+
+    <div class="processing-container">
+      <div class="processing-visual">
+        <div class="proc-rings">
+          <div class="proc-ring proc-ring--1"></div>
+          <div class="proc-ring proc-ring--2"></div>
+          <div class="proc-ring proc-ring--3"></div>
+          <div class="proc-core">
+            <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+              <path d="M24 8C15.16 8 8 15.16 8 24s7.16 16 16 16 16-7.16 16-16" stroke="url(#coreGrad)" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M32 8l4 4-4 4" stroke="url(#coreGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="coreGrad" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#a78bfa"/>
+                  <stop offset="1" stop-color="#34d399"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="processing-info">
+        <h2 class="proc-title">Optimizing your video</h2>
+        <p class="proc-subtitle" id="procStatusMsg">Analyzing source file...</p>
+
+        <div class="proc-progress-bar">
+          <div class="proc-progress-fill" id="procProgressFill" style="width: 0%"></div>
+        </div>
+
+        <div class="proc-stats">
+          <div class="proc-stat">
+            <span class="proc-stat-label">Progress</span>
+            <span class="proc-stat-value" id="procPct">0%</span>
+          </div>
+          <div class="proc-stat">
+            <span class="proc-stat-label">Elapsed</span>
+            <span class="proc-stat-value" id="procElapsed">0:00</span>
+          </div>
+          <div class="proc-stat">
+            <span class="proc-stat-label">Estimated</span>
+            <span class="proc-stat-value" id="procETA">—</span>
+          </div>
+          <div class="proc-stat">
+            <span class="proc-stat-label">Speed</span>
+            <span class="proc-stat-value" id="procSpeed">—</span>
+          </div>
+        </div>
+
+        <div class="proc-stages">
+          <div class="stage" id="stage-analyze">
+            <div class="stage-dot"></div>
+            <span>Analyzing source</span>
+          </div>
+          <div class="stage" id="stage-encode">
+            <div class="stage-dot"></div>
+            <span>Encoding video</span>
+          </div>
+          <div class="stage" id="stage-audio">
+            <div class="stage-dot"></div>
+            <span>Processing audio</span>
+          </div>
+          <div class="stage" id="stage-mux">
+            <div class="stage-dot"></div>
+            <span>Muxing output</span>
+          </div>
+          <div class="stage" id="stage-finalize">
+            <div class="stage-dot"></div>
+            <span>Finalizing</span>
+          </div>
+        </div>
+
+        <div class="proc-error glass" id="procError" style="display:none">
+          <svg viewBox="0 0 24 24" fill="none" width="24" height="24">
+            <circle cx="12" cy="12" r="10" stroke="#f87171" stroke-width="1.5"/>
+            <path d="M12 8v5M12 15.5v.5" stroke="#f87171" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <strong>Processing failed</strong>
+            <p id="procErrorMsg">An unexpected error occurred.</p>
+          </div>
+          <button class="btn btn-ghost" onclick="showPage('upload')">Try again</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!--  RESULTS / DOWNLOAD PAGE                                         -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <section id="page-results" class="page">
+    <div class="app-nav">
+      <a href="#" class="logo" onclick="showPage('landing')">
+        <span class="logo-mark">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+            <rect x="2" y="2" width="11" height="11" rx="2" fill="url(#rgrad1)"/>
+            <rect x="15" y="2" width="11" height="11" rx="2" fill="url(#rgrad2)" opacity="0.6"/>
+            <rect x="2" y="15" width="11" height="11" rx="2" fill="url(#rgrad2)" opacity="0.6"/>
+            <rect x="15" y="15" width="11" height="11" rx="2" fill="url(#rgrad1)"/>
+            <defs>
+              <linearGradient id="rgrad1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#a78bfa"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+              <linearGradient id="rgrad2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#34d399"/>
+                <stop offset="100%" stop-color="#059669"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="logo-text">VANTA Uploading Method</span>
+      </a>
+      <div class="breadcrumb">
+        <span class="crumb done">Upload</span>
+        <span class="crumb-sep">›</span>
+        <span class="crumb done">Configure</span>
+        <span class="crumb-sep">›</span>
+        <span class="crumb done">Process</span>
+        <span class="crumb-sep">›</span>
+        <span class="crumb active">Download</span>
+      </div>
+    </div>
+
+    <div class="results-container">
+      <div class="results-success-icon">
+        <svg viewBox="0 0 64 64" fill="none" width="64" height="64">
+          <circle cx="32" cy="32" r="30" stroke="url(#successGrad)" stroke-width="2"/>
+          <path d="M20 32l8 8 16-16" stroke="url(#successGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="successGrad" x1="2" y1="2" x2="62" y2="62" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#a78bfa"/>
+              <stop offset="1" stop-color="#34d399"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <h2 class="results-title">Your video is ready</h2>
+      <p class="results-subtitle">Optimized for TikTok's ingest pipeline. Download it and post.</p>
+
+      <div class="comparison-card glass">
+        <div class="comparison-col">
+          <div class="comp-label">Original</div>
+          <div class="comp-filename" id="origFilename">video.avi</div>
+          <div class="comp-size" id="origSize">—</div>
+          <div class="comp-meta" id="origMeta">—</div>
+        </div>
+        <div class="comparison-arrow">
+          <svg viewBox="0 0 48 24" fill="none" width="48" height="24">
+            <path d="M0 12h40M32 4l8 8-8 8" stroke="url(#arrGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="arrGrad" x1="0" y1="0" x2="48" y2="0" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#a78bfa"/>
+                <stop offset="1" stop-color="#34d399"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="size-reduction" id="sizeReduction">—% smaller</span>
+        </div>
+        <div class="comparison-col comparison-col--result">
+          <div class="comp-label">Optimized</div>
+          <div class="comp-filename" id="optFilename">video_optimized.mp4</div>
+          <div class="comp-size accent" id="optSize">—</div>
+          <div class="comp-meta" id="optMeta">—</div>
+        </div>
+      </div>
+
+      <div class="settings-summary glass">
+        <h4>Export settings used</h4>
+        <div class="summary-grid" id="summaryGrid"></div>
+      </div>
+
+      <div class="download-section">
+        <button class="btn btn-download" id="downloadBtn" onclick="downloadResult()">
+          <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+            <path d="M12 2v14m0 0l-5-5m5 5l5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 18v2a2 2 0 002 2h14a2 2 0 002-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Download optimized video
+        </button>
+        <p class="download-note">File will be deleted from our servers after download or in 1 hour, whichever comes first.</p>
+      </div>
+
+      <div class="feedback-panel glass">
+        <h4>Share feedback</h4>
+        <p class="feedback-copy">Tell us how the upload and conversion went so we can improve VANTA.</p>
+        <textarea id="feedbackText" placeholder="Your feedback helps us make uploads faster, more reliable, and better quality."></textarea>
+        <button class="btn btn-primary" id="feedbackSubmit">Send feedback</button>
+        <p class="feedback-note" id="feedbackNote"></p>
+      </div>
+
+      <div class="dl-progress" id="dlProgress" style="display:none">
+        <div class="dl-bar">
+          <div class="dl-fill" id="dlFill" style="width:0%"></div>
+        </div>
+        <p id="dlProgressLabel">Downloading...</p>
+      </div>
+
+      <button class="btn btn-ghost results-restart" onclick="restartApp()">
+        ← Optimize another video
+      </button>
+    </div>
+  </section>
+
+  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+  <script src="js/wasm-loader.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
