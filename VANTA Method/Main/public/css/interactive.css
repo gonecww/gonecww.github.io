@@ -1,0 +1,17 @@
+/* Interactive overlay: spotlight + animated lines + ripple */
+:root { --cursor-x:50vw; --cursor-y:50vh; --lines-offset-x:0px; --lines-offset-y:0px; }
+
+.interactive-overlay { position:fixed; inset:0; pointer-events:none; z-index:20; }
+
+.interactive-overlay .spotlight { position:absolute; inset:0; background: radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.03) 12%, transparent 28%); mix-blend-mode: screen; transition: background 120ms linear; }
+
+.interactive-overlay .lines { position:absolute; inset:0; background-image: linear-gradient(0deg, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 36px 36px; transform: translate3d(var(--lines-offset-x), var(--lines-offset-y), 0); filter: blur(0.9px) contrast(0.9); opacity: 0.8; }
+
+.interactive-overlay::after { content: ''; position:absolute; inset:0; background: radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(255,255,255,0.08), rgba(255,255,255,0.01) 8%, transparent 22%); mix-blend-mode: screen; pointer-events:none; }
+
+.btn { position:relative; overflow:hidden; }
+.ripple { position:absolute; border-radius:50%; transform:scale(0); background: rgba(255,255,255,0.16); animation: ripple 650ms cubic-bezier(.2,0,.2,1); pointer-events:none; }
+@keyframes ripple { to { transform: scale(4); opacity: 0; } }
+
+.highlight-on-hover { transition: box-shadow 220ms ease, transform 220ms ease; }
+.highlight-on-hover:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,255,255,0.12); }
